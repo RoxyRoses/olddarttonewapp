@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:workshop_app/app/modules/home/components/dota/dota_controller.dart';
-import 'package:workshop_app/app/modules/home/components/dota/hero_model.dart';
+
+import '../../../../../modules/searchhero/domain/entities/hero_model.dart';
 
 class DotaWidget extends StatelessWidget {
   final DotaController controller = Modular.get<DotaController>();

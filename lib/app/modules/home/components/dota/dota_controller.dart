@@ -3,7 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import 'package:workshop_app/app/modules/home/repository/interfaces/toda_repository_interface.dart';
 
-import 'hero_model.dart';
+import '../../../../../modules/searchhero/domain/entities/hero_model.dart';
 
 part 'dota_controller.g.dart';
 

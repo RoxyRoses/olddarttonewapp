@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:workshop_app/app/modules/home/components/dota/hero_model.dart';
 import 'package:workshop_app/app/shared/utils/constants.dart';
+import 'package:workshop_app/modules/searchhero/infra/models/hero_model_dto.dart';
 
+import '../../../../modules/searchhero/domain/entities/hero_model.dart';
 import 'interfaces/toda_repository_interface.dart';
 
 part 'toda_repository.g.dart';
@@ -31,7 +32,7 @@ class TodaRepository implements ITodaRepository {
     List<HeroModel> list = [];
     debugPrint(response.data.toString());
     for (var item in response.data as List) {
-      HeroModel model = HeroModel.fromJson(item);
+      HeroModelDto model = HeroModelDto.fromJson(item);
       list.add(model);
     }
     return list;
