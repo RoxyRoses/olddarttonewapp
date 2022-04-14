@@ -7,7 +7,7 @@ part of 'todo_controller.dart';
 // **************************************************************************
 
 final $TodoController = BindInject(
-  (i) => TodoController(),
+  (i) => TodoController(i<ITodoService>()),
   isSingleton: true,
   isLazy: true,
 );

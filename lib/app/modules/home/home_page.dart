@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:workshop_app/app/modules/home/components/dota/dota_widget.dart';
 import 'package:workshop_app/app/modules/home/components/todo/todo_widget.dart';
-import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -12,7 +10,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends ModularState<HomePage, HomeController> with TickerProviderStateMixin {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   //use 'controller' variable to access controller
 
   late final TabController _tabController;
@@ -36,9 +34,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> with TickerP
           title: Text(widget.title),
           bottom: TabBar(
             indicatorWeight: 4,
-            labelStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            labelStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             controller: _tabController, 
-            tabs: [
+            tabs: const [
               Tab(text: 'DotaDex',),
               Tab(text: 'ToDo',),
             ],
@@ -48,7 +46,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> with TickerP
           controller: _tabController,
           children: [
             DotaWidget(),
-            TodoWidget()
+            const TodoWidget()
           ]
           )
         );

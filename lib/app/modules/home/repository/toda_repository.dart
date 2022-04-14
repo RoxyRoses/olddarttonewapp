@@ -10,13 +10,14 @@ part 'toda_repository.g.dart';
 
 @Injectable()
 class TodaRepository implements ITodaRepository {
-  final Dio? client;
+  final Dio client;
 
   TodaRepository(this.client);
 
+  @override
   Future fetchPost() async {
     final response =
-        await client!.get('https://jsonplaceholder.typicode.com/posts/1');
+        await client.get('https://jsonplaceholder.typicode.com/posts/1');
     return response.data;
   }
 
@@ -26,14 +27,13 @@ class TodaRepository implements ITodaRepository {
 
   @override
   Future<List<HeroModel>> getHeros() async {
-    var response = await client!.get(url_base);
+    var response = await client.get(urlbase);
     List<HeroModel> list = [];
     debugPrint(response.data.toString());
     for (var item in response.data as List) {
       HeroModel model = HeroModel.fromJson(item);
       list.add(model);
     }
-
     return list;
   }
 }

@@ -8,13 +8,10 @@ import 'package:workshop_app/app/modules/home/services/interfaces/todo_service_i
 part 'todo_shared_service.g.dart';
 
 @Injectable()
-class TodoSharedService extends Disposable implements ITodoService {
+class TodoSharedService implements ITodoService {
   //dispose will be called automatically
 
-  Completer<SharedPreferences> _instance = Completer<SharedPreferences>();
-
-  @override
-  void dispose() {}
+  final Completer<SharedPreferences> _instance = Completer<SharedPreferences>();
 
   _init() async {
     _instance.complete(await SharedPreferences.getInstance());

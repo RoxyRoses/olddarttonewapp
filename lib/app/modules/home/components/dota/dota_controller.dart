@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
 import 'package:workshop_app/app/modules/home/repository/interfaces/toda_repository_interface.dart';
+
 import 'hero_model.dart';
 
 part 'dota_controller.g.dart';
@@ -10,7 +11,7 @@ part 'dota_controller.g.dart';
 class DotaController = _DotaControllerBase with _$DotaController;
 
 abstract class _DotaControllerBase with Store {
-  final ITodaRepository? repository;
+  final ITodaRepository repository;
 
   @observable
   ObservableFuture<List<HeroModel>>? listHero;
@@ -22,7 +23,7 @@ abstract class _DotaControllerBase with Store {
   @action
   void getHeros() {
     debugPrint('get hero');
-    listHero = repository!.getHeros().asObservable();
+    listHero = repository.getHeros().asObservable();
     debugPrint(' result ' + listHero!.value.toString());
   }
 }

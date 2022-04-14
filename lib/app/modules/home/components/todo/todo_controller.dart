@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
 import 'package:workshop_app/app/modules/home/services/interfaces/todo_service_interface.dart';
 
 part 'todo_controller.g.dart';
@@ -9,8 +9,8 @@ part 'todo_controller.g.dart';
 class TodoController = _TodoControllerBase with _$TodoController;
 
 abstract class _TodoControllerBase with Store {
-  final ITodoService storage = Modular.get();
-  _TodoControllerBase();
+  final ITodoService storage;
+  _TodoControllerBase(this.storage);
 
   @observable
   String text = '';
@@ -19,7 +19,7 @@ abstract class _TodoControllerBase with Store {
   String setText(value) => text = value;
 
   @observable
-  ObservableList<String> list = <String>[].asObservable();
+  var list = <String>[].asObservable();
 
   @action
   init() async {

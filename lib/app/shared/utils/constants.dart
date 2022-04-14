@@ -1,3 +1,3 @@
 
 
-const String url_base = 'https://api.opendota.com/api/heroStats';
+const String urlbase = 'https://api.opendota.com/api/heroStats';
