@@ -23,7 +23,7 @@ abstract class _TodoControllerBase with Store {
 
   @action
   init() async {
-    List<String> listLocal = await storage.get('list');
+    List<String>? listLocal = await storage.get('list');
     if (listLocal == null) {
       list = <String>[].asObservable();
     } else {

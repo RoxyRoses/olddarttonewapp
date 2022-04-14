@@ -22,13 +22,13 @@ mixin _$DotaController on _DotaControllerBase, Store {
   final _$listHeroAtom = Atom(name: '_DotaControllerBase.listHero');
 
   @override
-  ObservableFuture<List<HeroModel>> get listHero {
+  ObservableFuture<List<HeroModel>>? get listHero {
     _$listHeroAtom.reportRead();
     return super.listHero;
   }
 
   @override
-  set listHero(ObservableFuture<List<HeroModel>> value) {
+  set listHero(ObservableFuture<List<HeroModel>>? value) {
     _$listHeroAtom.reportWrite(value, super.listHero, () {
       super.listHero = value;
     });

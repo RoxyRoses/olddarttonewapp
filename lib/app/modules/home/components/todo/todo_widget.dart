@@ -5,6 +5,8 @@ import 'package:workshop_app/app/modules/home/components/todo/item/item_widget.d
 import 'package:workshop_app/app/modules/home/components/todo/todo_controller.dart';
 
 class TodoWidget extends StatelessWidget {
+  const TodoWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     TodoController controller = Modular.get();
@@ -18,18 +20,18 @@ class TodoWidget extends StatelessWidget {
                 SizedBox(
                   width: 300,
                   child: TextField(
-                    scrollPadding: EdgeInsets.all(12),
-                    decoration: InputDecoration(labelText: 'Digite um item'),
+                    scrollPadding: const EdgeInsets.all(12),
+                    decoration: const InputDecoration(labelText: 'Digite um item'),
                     onChanged: controller.setText,
                   ),
                 ),
                 GestureDetector(
-                  child: Icon(Icons.add),
+                  child: const Icon(Icons.add),
                   onTap: controller.save,
                 )
               ],
             ),
-            Container(
+            SizedBox(
               height: 450,
               child: ListView.builder(
                   itemCount: controller.list.length,

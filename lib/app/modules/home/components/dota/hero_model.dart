@@ -1,27 +1,27 @@
 class HeroModel {
-  int id;
-  String name;
-  String localizedName;
-  String img;
-  String icon;
-  int proWin;
-  int proPick;
-  int heroId;
-  int proBan;
-  int i1Pick;
-  int i1Win;
-  int i2Pick;
-  int i2Win;
-  int i3Pick;
-  int i3Win;
-  int i4Pick;
-  int i4Win;
-  int i5Pick;
-  int i5Win;
-  int i6Pick;
-  int i6Win;
-  int i7Pick;
-  int i7Win;
+  int? id;
+  String? name;
+  String? localizedName;
+  String? img;
+  String? icon;
+  int? proWin;
+  int? proPick;
+  int? heroId;
+  int? proBan;
+  int? i1Pick;
+  int? i1Win;
+  int? i2Pick;
+  int? i2Win;
+  int? i3Pick;
+  int? i3Win;
+  int? i4Pick;
+  int? i4Win;
+  int? i5Pick;
+  int? i5Win;
+  int? i6Pick;
+  int? i6Win;
+  int? i7Pick;
+  int? i7Win;
 
   HeroModel(
       {this.id,
@@ -75,30 +75,30 @@ class HeroModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['localized_name'] = this.localizedName;
-    data['img'] = this.img;
-    data['icon'] = this.icon;
-    data['pro_win'] = this.proWin;
-    data['pro_pick'] = this.proPick;
-    data['hero_id'] = this.heroId;
-    data['pro_ban'] = this.proBan;
-    data['1_pick'] = this.i1Pick;
-    data['1_win'] = this.i1Win;
-    data['2_pick'] = this.i2Pick;
-    data['2_win'] = this.i2Win;
-    data['3_pick'] = this.i3Pick;
-    data['3_win'] = this.i3Win;
-    data['4_pick'] = this.i4Pick;
-    data['4_win'] = this.i4Win;
-    data['5_pick'] = this.i5Pick;
-    data['5_win'] = this.i5Win;
-    data['6_pick'] = this.i6Pick;
-    data['6_win'] = this.i6Win;
-    data['7_pick'] = this.i7Pick;
-    data['7_win'] = this.i7Win;
+    final Map<String, dynamic> data =  <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['localized_name'] = localizedName;
+    data['img'] = img;
+    data['icon'] = icon;
+    data['pro_win'] = proWin;
+    data['pro_pick'] = proPick;
+    data['hero_id'] = heroId;
+    data['pro_ban'] = proBan;
+    data['1_pick'] = i1Pick;
+    data['1_win'] = i1Win;
+    data['2_pick'] = i2Pick;
+    data['2_win'] = i2Win;
+    data['3_pick'] = i3Pick;
+    data['3_win'] = i3Win;
+    data['4_pick'] = i4Pick;
+    data['4_win'] = i4Win;
+    data['5_pick'] = i5Pick;
+    data['5_win'] = i5Win;
+    data['6_pick'] = i6Pick;
+    data['6_win'] = i6Win;
+    data['7_pick'] = i7Pick;
+    data['7_win'] = i7Win;
     return data;
   }
 }

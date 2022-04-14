@@ -32,7 +32,7 @@ class TodoSharedService extends Disposable implements ITodoService {
   }
 
   @override
-  Future<List<String>> get(String key) async {
+  Future<List<String>?> get(String key) async {
     var share = await _instance.future;
     debugPrint('get $key');
     return share.getStringList(key);
