@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:workshop_app/app/modules/home/components/todo/item/item_widget.dart';
 import 'package:workshop_app/app/modules/home/components/todo/todo_controller.dart';
+import 'package:workshop_app/modules/searchhero/presenter/widgets/item_widget.dart';
 
 class TodoWidget extends StatelessWidget {
   const TodoWidget({Key? key}) : super(key: key);

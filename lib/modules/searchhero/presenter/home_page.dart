@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:workshop_app/app/modules/home/components/dota/dota_widget.dart';
-import 'package:workshop_app/app/modules/home/components/todo/todo_widget.dart';
+import 'package:workshop_app/modules/searchhero/presenter/widgets/dota_widget.dart';
+import 'package:workshop_app/modules/searchhero/presenter/widgets/todo_widget.dart';
 
 class HomePage extends StatefulWidget {
   final String title;

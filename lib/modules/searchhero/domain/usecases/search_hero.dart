@@ -5,7 +5,7 @@ import '../entities/hero_model.dart';
 import '../errors/errors.dart';
 
 abstract class SearchHero{
- Future<Either<FailureSearch, List<HeroModel>>> getHeros();
+ Future<Either<FailureSearch, List<HeroModel>>> getHeroes();
 }
 
 class SearchHeroImpl implements SearchHero{
@@ -14,7 +14,7 @@ class SearchHeroImpl implements SearchHero{
   SearchHeroImpl(this.repository);
 
   @override
-  Future<Either<FailureSearch, List<HeroModel>>> getHeros() async {
+  Future<Either<FailureSearch, List<HeroModel>>> getHeroes() async {
     
     var result = repository.getHeroes();
 

@@ -14,7 +14,7 @@ main() {
 
   test('Should Return a hero', () async{
     when(() => repository.getHeroes()).thenAnswer((_) async => right(<HeroModel>[]));
-    final result = await usecase.getHeros();
+    final result = await usecase.getHeroes();
     expect(result | [], isA<List<HeroModel>>());
   });
 

@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'components/dota/dota_controller.dart';
-import 'components/todo/todo_controller.dart';
-import 'home_page.dart';
-import 'repository/toda_repository.dart';
-import 'services/todo_shared_service.dart';
+import 'app/modules/home/components/dota/dota_controller.dart';
+import 'app/modules/home/components/todo/todo_controller.dart';
+import 'app/modules/home/repository/toda_repository.dart';
+import 'app/modules/home/services/todo_shared_service.dart';
+import 'modules/searchhero/presenter/home_page.dart';
 
 class HomeModule extends Module {
   @override
@@ -18,6 +18,7 @@ class HomeModule extends Module {
         $TodaRepository,
         $TodoController,
         $DotaController,
+        
       ];
 
   @override
