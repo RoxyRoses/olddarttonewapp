@@ -28,6 +28,7 @@ main() {
     initModule(AppModule(), replaceBinds: [
       Bind.instance<Dio>(dioMock),
       Bind.instance<SearchHeroImpl>(searchMock),
+      Bind.instance<SearchHeroImpl>(searchMock),
       Bind.instance<SearchDatasourceApiImpl>(searchDatasource)
     ]);
   }));

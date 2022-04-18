@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:workshop_app/modules/searchhero/presenter/states/bloc/search_hero_bloc.dart';
 import 'package:workshop_app/modules/searchhero/presenter/widgets/dota_widget.dart';
 import 'package:workshop_app/modules/searchhero/presenter/widgets/todo_widget.dart';
 
@@ -14,6 +16,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   //use 'controller' variable to access controller
 
   late final TabController _tabController;
+  final bloc = Modular.get<SearchHeroBloc>();
 
   @override
   void initState() {

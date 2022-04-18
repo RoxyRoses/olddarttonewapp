@@ -1,41 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:workshop_app/app/modules/home/components/dota/dota_controller.dart';
+import 'package:workshop_app/modules/searchhero/presenter/states/bloc/search_hero_bloc.dart';
 
 import '../../domain/entities/hero_model.dart';
 
 class DotaWidget extends StatelessWidget {
-  final DotaController controller = Modular.get<DotaController>();
+  final bloc = Modular.get<SearchHeroBloc>();
 
- DotaWidget({Key? key}) : super(key: key);
+  DotaWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (_) {
-      if (controller.listHero!.value == null) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      } else if (controller.listHero!.error != null) {
-        return Center(
-          child: Column(
-            children: [
-              const Text('Algum erro aconteceu'),
-              TextButton(
-                  onPressed: controller.getHeros, child: const Text('Try again'))
-            ],
-          ),
-        );
-      } else {
-        return Container(
-          padding: const EdgeInsets.all(2),
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: ListView.builder(
-                itemCount: controller.listHero!.value!.length,
+    bloc.add(const SearchEvent());
+    return Container(
+      padding: const EdgeInsets.all(2),
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: BlocBuilder<SearchHeroBloc, SearchHeroState>(
+          bloc: bloc,
+          builder: (context, state) {
+            if (state is ErrorSearchState) {
+              return const Center(
+                child: Text('Houve um erro'),
+              );
+            }
+            if (state is LoadSearchState) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if (state is SearchHeroInitial) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            final list = (state as SuccessSearchState).result;
+            return ListView.builder(
+                itemCount: list.length,
                 itemBuilder: (context, index) {
-                  HeroModel hero = controller.listHero!.value![index];
+                  HeroModel hero = list[index];
                   return Card(
                     child: SizedBox(
                       height: 80,
@@ -44,31 +48,29 @@ class DotaWidget extends StatelessWidget {
                         leading: CircleAvatar(
                           maxRadius: 30,
                           backgroundColor: Colors.grey,
-                          backgroundImage: hero.img != null 
-                          ? NetworkImage("https://steamcdn-a.akamaihd.net/"+hero.img!)
-                          : null,
+                          backgroundImage: hero.img != null
+                              ? NetworkImage(
+                                  "https://steamcdn-a.akamaihd.net/" +
+                                      hero.img!)
+                              : null,
                         ),
                         title: Text(
-                          hero.localizedName!,
+                          hero.localizedName ?? '',
                           style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16
-                          ),
-                          ),
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
                         subtitle: Text(
                           "id: ${hero.heroId} ProWin: ${hero.proWin} \nProPick:${hero.proPick} ProBam: ${hero.proBan}",
                           style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 12
-                          ),
-                          ),
+                              fontWeight: FontWeight.bold, fontSize: 12),
                         ),
                       ),
+                    ),
                   );
-                }),
-          ),
-        );
-      }
-    });
+                });
+          },
+        ),
+      ),
+    );
   }
 }

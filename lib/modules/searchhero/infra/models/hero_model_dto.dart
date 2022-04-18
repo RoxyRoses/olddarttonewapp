@@ -51,6 +51,14 @@ class HeroModelDto extends HeroModel {
       required this.i7WinDto})
       : super(
           heroId: heroIdDto,
+          icon: iconDto,
+          id: idDto,
+          img: imgDto,
+          name: nameDto,
+          proBan: proBanDto,
+          proPick: proPickDto,
+          proWin: proWinDto,
+          localizedName: localizedNameDto,
           i1Pick: i1PickDto,
           i1Win: i1WinDto,
           i2Pick: i2PickDto,
@@ -95,29 +103,30 @@ class HeroModelDto extends HeroModel {
     return data;
   }
 
-  HeroModelDto.fromJson(Map<String, dynamic> map) {
-    idDto = map['id'];
-    nameDto = map['name'];
-    localizedNameDto = map['localized_name'];
-    imgDto = map['img'];
-    iconDto = map['icon'];
-    proWinDto = map['pro_win'];
-    proPickDto = map['pro_pick'];
-    heroIdDto = map['hero_id'];
-    proBanDto = map['pro_ban'];
-    i1PickDto = map['1_pick'];
-    i1WinDto = map['1_win'];
-    i2PickDto = map['2_pick'];
-    i2WinDto = map['2_win'];
-    i3PickDto = map['3_pick'];
-    i3WinDto = map['3_win'];
-    i4PickDto = map['4_pick'];
-    i4WinDto = map['4_win'];
-    i5PickDto = map['5_pick'];
-    i5WinDto = map['5_win'];
-    i6PickDto = map['6_pick'];
-    i6WinDto = map['6_win'];
-    i7PickDto = map['7_pick'];
-    i7WinDto = map['7_win'];
+  factory HeroModelDto.fromJson(Map<String, dynamic> map) {
+    return HeroModelDto(
+        idDto: map['id'],
+        nameDto: map['name'],
+        localizedNameDto: map['localized_name'],
+        imgDto: map['img'],
+        iconDto: map['icon'],
+        proWinDto: map['pro_win'],
+        proPickDto: map['pro_pick'],
+        heroIdDto: map['hero_id'],
+        proBanDto: map['pro_ban'],
+        i1PickDto: map['1_pick'],
+        i1WinDto: map['1_win'],
+        i2PickDto: map['2_pick'],
+        i2WinDto: map['2_win'],
+        i3PickDto: map['3_pick'],
+        i3WinDto: map['3_win'],
+        i4PickDto: map['4_pick'],
+        i4WinDto: map['4_win'],
+        i5PickDto: map['5_pick'],
+        i5WinDto: map['5_win'],
+        i6PickDto: map['6_pick'],
+        i6WinDto: map['6_win'],
+        i7PickDto: map['7_pick'],
+        i7WinDto: map['7_win']);
   }
 }

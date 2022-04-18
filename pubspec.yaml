@@ -34,6 +34,8 @@ environment:
   sdk: '>=2.15.0 <3.0.0'
 
 dependencies:
+  bloc_test: ^9.0.3
+  flutter_bloc: ^8.0.1
   modular_test: any
   mocktail: ^0.3.0
   dartz: ^0.10.1

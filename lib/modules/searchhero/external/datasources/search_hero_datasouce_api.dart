@@ -18,8 +18,11 @@ class SearchDatasourceApiImpl implements SearchHeroDatasource {
     if (response.statusCode == 200) {
       List<HeroModel> list = [];
       debugPrint(response.data.toString());
-        HeroModelDto model = HeroModelDto.fromJson(response.data);
+      for (var item in response.data) {
+        HeroModelDto model = HeroModelDto.fromJson(item);
         list.add(model);
+      }
+
       return list;
     } else {
       throw DataSourceError();
